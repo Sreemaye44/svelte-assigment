@@ -1,20 +1,27 @@
 <script>
     import { onMount } from 'svelte';
   import { countryDataStore } from '../../stores/countryDataStore';
+
+  const data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]; // Replace with your data
+
    onMount(async () => {
     try {
       const response = await fetch('https://restcountries.com/v3.1/all');
       const data = await response.json();
-      console.log("🚀 ~ file: coutryData.svelte:9 ~ onMount ~ data:", data)
       countryDataStore.set(data);
     } catch (error) {
       console.error('Error fetching country data:', error);
     }
-  });
+  },);
+  
+  console.log(countryDataStore);
+
+
 </script>
 
-<div class="overflow-x-auto">
-   <table class="table w-full">
+<div class="flex justify-between p-16">
+  <div class="w-9/12 me-5">
+   <table class="table w-full border">
      <thead>
             <tr>
                 <th>Flag</th>
@@ -50,4 +57,6 @@
   {/if}
   </tbody>
      </table>
+</div>
+
 </div>
