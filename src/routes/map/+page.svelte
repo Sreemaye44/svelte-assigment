@@ -5,8 +5,6 @@
     import TileLayer from 'ol/layer/Tile.js';
      import View from 'ol/View.js';
 
-window.onload=init;
-function init(){
     const map = new Map({
   target: 'map',
   layers: [
@@ -19,7 +17,7 @@ function init(){
     zoom: 2,
   }),
 });
-}
+
 </script>
 
 <div id="map" class="map">
